@@ -10,7 +10,8 @@ RUN git clone https://github.com/elhenro/endlessh-auto-report-abuseipdb.git
 
 WORKDIR /endlessh-auto-report-abuseipdb
 
-RUN sed -i 's/<api-token>/${API_TOKEN}/g' report.sh
+ARG API_TOKEN
+RUN sed -i "s/<api-token>/${API_TOKEN}/g" report.sh
 
 RUN chmod +x tarpitReporter.sh report.sh cache.sh
 
